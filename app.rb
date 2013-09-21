@@ -9,6 +9,12 @@ UPLOAD_DIR='uploads/'
 
 before do
   content_type 'application/json'
+  if request.request_method == 'OPTIONS'
+    headers 'Access-Control-Allow-Origin'  => '*'
+    headers 'Access-Control-Allow-Headers' => 'Authorization,Accepts,Content-Type,X-CSRF-Token,X-Requested-With'
+    headers 'Access-Control-Allow-Methods' => 'POST'
+    halt 200
+  end
 end
 
 get '/' do
@@ -16,9 +22,6 @@ get '/' do
 end
 
 post '/' do
-  headers 'Access-Control-Allow-Origin'  => '*'
-  headers 'Access-Control-Allow-Headers' => 'Authorization,Accepts,Content-Type,X-CSRF-Token,X-Requested-With'
-  headers 'Access-Control-Allow-Methods' => 'GET,POST,PUT,DELETE,OPTIONS'
   bucket   = ENV['AMAZON_S3_BUCKET']
   endpoint = ENV['AMAZON_S3_ENDPOINT']
   file     = params[:file][:tempfile]
