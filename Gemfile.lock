@@ -7,7 +7,7 @@ GEM
       xml-simple
     backports (3.3.3)
     builder (3.2.2)
-    dotfile (0.2.3)
+    dotenv (0.8.0)
     mime-types (1.25)
     multi_json (1.8.0)
     rack (1.5.2)
@@ -34,6 +34,6 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
-  dotfile
+  dotenv
   sinatra
   sinatra-contrib
