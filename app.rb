@@ -11,7 +11,7 @@ before do
   content_type 'application/json'
   if request.request_method == 'OPTIONS'
     headers 'Access-Control-Allow-Origin'  => '*'
-    headers 'Access-Control-Allow-Headers' => 'Authorization,Accepts,Content-Type,X-CSRF-Token,X-Requested-With'
+    headers 'Access-Control-Allow-Headers' => 'Authorization,Accepts,Content-Type,X-CSRF-Token,X-Requested-With,Cache-Control'
     headers 'Access-Control-Allow-Methods' => 'POST'
     halt 200
   end
