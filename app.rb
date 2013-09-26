@@ -22,8 +22,8 @@ end
 post '/' do
   bucket   = ENV['AMAZON_S3_BUCKET']
   endpoint = ENV['AMAZON_S3_ENDPOINT']
-  file     = params[:file][:tempfile]
-  filename = params[:file][:filename]
+  file     = params[:Filedata][:tempfile]
+  filename = params[:Filedata][:filename]
   data     = open(file.path)
   begin
     AWS::S3::DEFAULT_HOST.replace endpoint
