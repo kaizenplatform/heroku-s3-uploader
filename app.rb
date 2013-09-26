@@ -39,3 +39,7 @@ post '/' do
   json url: url
 end
 
+post '/json' do
+  json params:  params, post_id: rand(1000), mode: params[:post] && params[:post][:id] ? "update" : "create"
+end
+
