@@ -36,7 +36,7 @@ post '/' do
     return json error: e
   end
   url = "https://#{bucket}.s3.amazonaws.com/#{UPLOAD_DIR}#{filename}"
-  json url: url
+  json url: url, id: rand(1000), filename: filename
 end
 
 post '/json' do
