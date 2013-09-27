@@ -35,7 +35,7 @@ post '/' do
   rescue Exception => e
     return json error: e
   end
-  url = "https://#{bucket}.s3.amazonaws.com/#{UPLOAD_DIR}#{filename}"
+  url = "https://#{bucket}.s3.amazonaws.com/#{UPLOAD_DIR}#{URI.escape(filename)}"
   json url: url, id: rand(1000), filename: filename
 end
 
